@@ -1,0 +1,6 @@
+@PasificKodeA_HostAddress = http://localhost:5195
+
+GET {{PasificKodeA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
