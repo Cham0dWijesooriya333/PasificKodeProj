@@ -1,4 +1,4 @@
-PasificKodeA
+# PasificKodeA
 Simple ASP.NET Web API for managing Departments and Employees using raw ADO.NET with SQL Server.
 Tech stack
 •	.NET 10
@@ -6,10 +6,10 @@ Tech stack
 •	SQL Server (uses plain SQL via System.Data.SqlClient)
 •	No ORM (Dapper/EF) used
 
-Overview
+# Overview
 
 This repository exposes CRUD endpoints for Departments and Employees. Departments cannot be deleted while Employees reference them; the API returns 409 Conflict with a clear message in that case.
-Prerequisites
+# Prerequisites
 •	.NET 10 SDK
 •	SQL Server instance (localdb, SQL Server Express)
 •	A connection string named DefaultConnection in appsettings.*.json
@@ -19,11 +19,11 @@ Getting started
 •	Open appsettings.Development.json (or appsettings.json)
 •	Set ConnectionStrings:DefaultConnection to your SQL Server connection string.
 Example:
-("ConnectionStrings": {
-     "DefaultConnection": "Server=(localdb)\\ExpressSql;Database=CompanyDB;Trusted_Connection=True;"
-   }
-)
- 4.	Create the database schema (example) Execute the following SQL against your SQL Server to create tables the app expects:
+# "ConnectionStrings": {
+#    "DefaultConnection": "Server=(localdb)\\ExpressSql;Database=CompanyDB;Trusted_Connection=True;"
+#   }
+
+# 4.	Create the database schema (example) Execute the following SQL against your SQL Server to create tables the app expects:
 CREATE DATABASE CompanyDB;
 GO
 USE CompanyDB;
@@ -48,7 +48,7 @@ CREATE TABLE Employees (
    
    Note: Age is not stored — compute it in the frontend from DateOfBirth.
 
-Tested API endpoints (via Swagger UI) >>
+# Tested API endpoints (via Swagger UI) >>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -61,7 +61,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-The following endpoints have been validated in Swagger UI:
+# The following endpoints have been validated in Swagger UI:
 •	Departments
 •	GET /api/departments
 •	GET /api/departments/{id}
@@ -75,7 +75,7 @@ The following endpoints have been validated in Swagger UI:
 •	PUT /api/employees/{id}
 •	DELETE /api/employees/{id}
 Use Swagger UI to exercise these endpoints and view request/response examples.
-Notes & recommendations
+# Notes & recommendations
 •	Age should be displayed/calculated on the client from DateOfBirth to avoid inconsistencies.
 For production, consider:
 •	Using explicit SqlParameter types instead of AddWithValue for predictable types/performance.
