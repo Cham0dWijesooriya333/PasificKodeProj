@@ -20,7 +20,7 @@ Getting started
 •	Set ConnectionStrings:DefaultConnection to your SQL Server connection string.
 Example:
 ("ConnectionStrings": {
-     "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=CompanyDB;Trusted_Connection=True;"
+     "DefaultConnection": "Server=(localdb)\\ExpressSql;Database=CompanyDB;Trusted_Connection=True;"
    }
 )
  4.	Create the database schema (example) Execute the following SQL against your SQL Server to create tables the app expects:
@@ -34,7 +34,7 @@ CREATE TABLE Departments (
   DepartmentCode NVARCHAR(20) NOT NULL,
   DepartmentName NVARCHAR(100) NOT NULL
 );
-=
+
 CREATE TABLE Employees (
   EmployeeId INT IDENTITY(1,1) PRIMARY KEY,
   FirstName NVARCHAR(50) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE Employees (
   DepartmentId INT NOT NULL,
   CONSTRAINT FK_Employees_Departments FOREIGN KEY (DepartmentId) REFERENCES Departments(DepartmentId)
    );
-   =
+   
    Note: Age is not stored — compute it in the frontend from DateOfBirth.
 
 Tested API endpoints (via Swagger UI) >>
